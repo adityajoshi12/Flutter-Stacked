@@ -11,7 +11,8 @@
 	],
 	"activationEvents": [
 		"onCommand:stacked-mvvm.createViews",
-		"onCommand:stacked-mvvm.initializeArchitecture"
+		"onCommand:stacked-mvvm.initializeArchitecture",
+		"onCommand:stacked-mvvm.createWidgets"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -19,11 +20,16 @@
 			{
 				"command": "stacked-mvvm.createViews",
 				"title": "Create View",
-				"category": "Flutters"
+				"category": "Flutter Stacked"
 			},
 			{
 				"command": "stacked-mvvm.initializeArchitecture",
 				"title": "Initialize Stacked",
+				"category": "Flutter Stacked"
+			},
+			{
+				"command": "stacked-mvvm.createWidgets",
+				"title": "Create Widget",
 				"category": "Flutter Stacked"
 			}
 		]
@@ -55,6 +61,7 @@
 	"dependencies": {
 		"js-yaml": "^3.14.0",
 		"lodash": "^4.17.19",
-		"shelljs": "^0.8.4"
+		"shelljs": "^0.8.4",
+		"spawn-command": "0.0.2-1"
 	}
 }

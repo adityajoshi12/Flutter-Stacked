@@ -8,7 +8,9 @@ export class ViewModel extends Base {
 
     super(fileName, suffix);
     let initialPath = this.projectName === undefined ? '../../' : `package:${this.projectName}/`;
-    this._dartString = `import '${initialPath}core/base/base_view_model.dart';
+    this._dartString = `import 'package:stacked/stacked.dart';
+import 'package:injectable/injectable.dart';
+@singleton
 class ${this.className} extends BaseViewModel {
   ${this.className}();
   
@@ -26,14 +28,7 @@ class ${this.className} extends BaseViewModel {
     import 'package:injectable/injectable.dart';
     @singleton
     class HomeViewModel extends BaseViewModel {
-      int _counter;
-      HomeViewModel({int counter = 0}) : this._counter = counter;
-      int get counter => this._counter;
-      set counter(int value) {
-        this._counter = value;
-        notifyListeners();
-      }
-      void increment() => this.counter += 1;
+      
     }`;
   }
 }

@@ -2,15 +2,13 @@ import * as path from "path";
 import * as _ from "lodash";
 import { FileSystemManager } from "./file_system_manager";
 import { WriteFileOptions } from "fs";
-import { BaseModel } from "../dart_snippets/architecture/base_model";
-import { BaseViewModel } from "../dart_snippets/architecture/base_view_model";
 import { Utils } from "./utils";
-import { NavigatorService as BaseService } from "../dart_snippets/architecture/navigator_service";
+import { NavigatorService as ThirdPartyServices } from "../dart_snippets/architecture/third_party_services";
 import { Locator } from "../dart_snippets/architecture/locator";
 import { Logger } from "../dart_snippets/architecture/logger";
-import { Providers } from "../dart_snippets/architecture/providers";
 import { Main } from "../dart_snippets/architecture/main";
 import { YamlHelper } from "./yaml_helper";
+import { Router } from "../dart_snippets/architecture/router";
 
 export class Architecture {
   constructor(private rootPath: string) {}
@@ -20,6 +18,7 @@ export class Architecture {
     this.initTheme();
     this.initViews();
     this.initWidgets();
+    this.initRoute();
 
     YamlHelper.initializeWithDependencies();
     this.createExistingFile(
@@ -49,7 +48,7 @@ export class Architecture {
       "logger.dart",
       new Logger("logger.dart").dartString
     );
-    //this.createFile(corePath, 'providers.dart', new Providers('providers.dart').dartString);
+    
   }
 
   private initServices(corePath: string) {
@@ -62,8 +61,8 @@ export class Architecture {
 
     this.createFile(
       servicesPath,
-      "base_services.dart",
-      new BaseService("base_services.dart").dartString
+      "third_party_services.dart",
+      new ThirdPartyServices("third_party_services.dart").dartString
     );
   }
 
@@ -114,5 +113,12 @@ export class Architecture {
   ) {
     FileSystemManager.createFile(pathValue, fileName, data);
     Utils.openFile(path.join(pathValue, fileName));
+  }
+
+  private initRoute(){
+    let widgetsPath = path.join(this.rootPath, "core/route");
+    let folderCreated = FileSystemManager.createFolder(widgetsPath);
+    console.debug(`FolderCreated: ${folderCreated}`);
+    this.createFile(widgetsPath,"router.dart",new Router("router.dart").dartString);
   }
 }

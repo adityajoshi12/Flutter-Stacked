@@ -1,6 +1,8 @@
 import * as vscode from 'vscode';
 import _ = require('lodash');
-
+import * as shell from 'shelljs';
+import { exec } from 'child_process';
+const cp = require('child_process');
 export class Utils {
     public static isValidClassName(className: string): string | undefined {
         if (className.length === 0) {
@@ -27,7 +29,7 @@ export class Utils {
     public static openFile(filePath: string) {
         console.info(`openFile: ${filePath}`);
         let openPath = vscode.Uri.file(filePath);
-        
+
         vscode.workspace.openTextDocument(openPath).then((document) => {
             vscode.window.showTextDocument(document);
         });
@@ -62,5 +64,20 @@ export class Utils {
         }
 
         return fileName.trim();
+    }
+
+    public static buildRunner(path: string) {
+
+        shell.cd(path);
+        //exec("flutter pub get");
+        setTimeout(() => {
+
+            vscode.window.showInformationMessage("Running command: flutter pub run build_runner build");
+            exec("flutter pub run build_runner build --delete-conflicting-outputs", function (status, output) {
+                console.log('Exit status:', status);
+                console.log('Program output:', output);
+            });
+        }, 5000);
+
     }
 }

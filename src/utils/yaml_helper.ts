@@ -14,7 +14,7 @@ export class YamlHelper {
     this.addDependencyToPubspec("auto_route", "0.6.1");
     this.addDependencyToPubspec("injectable", "0.4.0+1");
     this.addDevDependencyToPubspec("injectable_generator");
-    this.addDevDependencyToPubspec("auto_route_generator");
+    this.addDevDependencyToPubspec("auto_route_generator","0.6.1");
     this.addDevDependencyToPubspec("build_runner");
     this.addAssetComment();
   }

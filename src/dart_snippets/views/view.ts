@@ -1,5 +1,6 @@
 import * as _ from 'lodash';
 import { Base } from '../architecture/base';
+import { Router } from '../architecture/router';
 
 export class View extends Base {
 
@@ -39,6 +40,8 @@ class ${this.className} extends StatelessWidget {
     );
   }
 }`;
+
+    Router.addRoute(`MaterialRoute(page: ${this.className},)`,`import '../../ui/views/${fileName}/${fileName}_view.dart';`);
   }
 
   get dartString(): string {
