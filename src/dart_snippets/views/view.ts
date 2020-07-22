@@ -16,7 +16,6 @@ export class View extends Base {
     this._dartString = `library ${fileName}_view;
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:stacked/stacked.dart';
-import '../../../core/locator.dart';
 import 'package:flutter/material.dart';
 import '${fileName}_view_model.dart';
 part '${fileName}_mobile.dart';
@@ -26,7 +25,7 @@ class ${this.className} extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<${classPrefix}ViewModel>.reactive(
-      viewModelBuilder: () => locator<${classPrefix}ViewModel>(),
+      viewModelBuilder: () => ${classPrefix}ViewModel(),
       onModelReady: (model) {
         // Do something once your model is initialized
       },

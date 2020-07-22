@@ -9,8 +9,7 @@ export class ViewModel extends Base {
     super(fileName, suffix);
     let initialPath = this.projectName === undefined ? '../../' : `package:${this.projectName}/`;
     this._dartString = `import 'package:stacked/stacked.dart';
-import 'package:injectable/injectable.dart';
-@singleton
+
 class ${this.className} extends BaseViewModel {
   ${this.className}();
   
@@ -25,10 +24,9 @@ class ${this.className} extends BaseViewModel {
   get demoString(): string {
     let initialPath = this.projectName === undefined ? '../../' : `package:${this.projectName}/`;
     return `import 'package:stacked/stacked.dart';
-    import 'package:injectable/injectable.dart';
-    @singleton
+
     class HomeViewModel extends BaseViewModel {
-      
+      HomeViewModel();
     }`;
   }
 }
