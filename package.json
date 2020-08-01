@@ -1,14 +1,31 @@
 {
 	"name": "stacked-mvvm",
-	"displayName": "Stacked MVVM",
-	"description": "",
-	"version": "0.0.1",
+	"displayName": "Flutter Stacked MVVM",
+	"description": "This plugin is based on filledstacked Stacked architecture. MVVM code generators used in conjunction with the Stacked plugin. ",
+	"version": "1.0.1",
 	"engines": {
 		"vscode": "^1.47.0"
 	},
+	"publisher": "aditya-joshi",
 	"categories": [
 		"Other"
 	],
+	"keywords": [
+		"Flutter",
+		"MVVM",
+		"Stacked Architecture",
+		"Code generator",
+		"Snippet"
+	],
+	"license": "GPLv3",
+	"homepage": "https://github.com/adityajoshi12/Flutter-Stacked",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/adityajoshi12/Flutter-Stacked"
+	},
+	"bugs": {
+		"url": "https://github.com/adityajoshi12/Flutter-Stacked/issues"
+	},
 	"activationEvents": [
 		"onCommand:stacked-mvvm.createViews",
 		"onCommand:stacked-mvvm.initializeArchitecture",
@@ -70,5 +87,6 @@
 		"lodash": "^4.17.19",
 		"shelljs": "^0.8.4",
 		"spawn-command": "0.0.2-1"
-	}
+	},
+	"icon": "logo.png"
 }
