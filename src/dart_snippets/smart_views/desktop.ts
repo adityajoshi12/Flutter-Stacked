@@ -1,5 +1,5 @@
 import * as _ from 'lodash';
-import { Base } from '../architecture/base';
+import {Base} from '../architecture/base';
 
 export class Desktop extends Base {
 

@@ -1,14 +1,14 @@
 import * as _ from 'lodash';
 import { Base } from '../architecture/base';
 
-export class Desktop extends Base {
+export class Tablet extends Base {
 
   private _dartString: string;
 
   constructor(fileName: string, suffix: string) {
     super(fileName, suffix);
 
-    let classPrefixList: string[] = this.className.split('Desktop');
+    let classPrefixList: string[] = this.className.split('Tablet');
     let classPrefix: string | undefined;
     if (!_.isEmpty(classPrefixList)) { classPrefix = _.first(classPrefixList); }
 
@@ -31,22 +31,23 @@ class _${this.className} extends StatelessWidget {
 
   get demoString(): string {
     return `part of home_view;
-class _HomeDesktop extends StatelessWidget {
+class _HomeTablet extends StatelessWidget {
   final HomeViewModel viewModel;
-  _HomeDesktop(this.viewModel);
+  _HomeTablet(this.viewModel);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Desktop'),
-        backgroundColor: Colors.amber,
+        title: Text('Tablet'),
+        backgroundColor: Colors.indigo,
       ),
       body: Center(
-       
+        
       ),
       
     );
   }
-}`;
+}
+`;
   }
 }

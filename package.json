@@ -12,7 +12,8 @@
 	"activationEvents": [
 		"onCommand:stacked-mvvm.createViews",
 		"onCommand:stacked-mvvm.initializeArchitecture",
-		"onCommand:stacked-mvvm.createWidgets"
+		"onCommand:stacked-mvvm.createWidgets",
+		"onCommand:stacked-mvvm.createSmartWidgets"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -30,6 +31,12 @@
 			{
 				"command": "stacked-mvvm.createWidgets",
 				"title": "Create Widget",
+				"category": "Flutter Stacked"
+			},
+			
+			{
+				"command": "stacked-mvvm.createSmartWidgets",
+				"title": "Create Smart Widget",
 				"category": "Flutter Stacked"
 			}
 		]

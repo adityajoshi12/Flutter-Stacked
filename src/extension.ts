@@ -133,9 +133,46 @@ export function activate(context: vscode.ExtensionContext) {
     Utils.buildRunner(rootPath);
   });
 
+
+
+
+  let smartWidgetDisposable = vscode.commands.registerCommand("stacked-mvvm.createSmartWidget", async () => {
+
+
+    if (!FileSystemManager.isFlutterProject()) { return; }
+
+    let rootPath = VsCodeActions.rootPath;
+    let archInitalized = FileSystemManager.doesFileExist(rootPath, "lib/core/locator.dart");
+    if (!archInitalized) {
+      VsCodeActions.showErrorMessage("Flutter Stacked is not initialized.\nRun Flutter Stacked:Initialize Stacked");
+      return;
+    }
+    let inputString = await VsCodeActions.getInputString('Enter class name', async (value) => {
+      if (value.length === 0) {
+        return 'Enter class name';
+      }
+      if (value.toLowerCase() === 'widget') {
+        return 'Widget is not a valid class name';
+      }
+      return undefined;
+    });
+
+    if (inputString.length === 0 || inputString.toLowerCase() === 'widget') {
+      console.warn("activate: inputString length is 0 😡");
+      VsCodeActions.showErrorMessage("Invalid name for file");
+      return;
+    }
+
+    let fileName = Utils.processFileName(inputString.trim());
+    console.debug(`activate: fileName: ${fileName}`);
+
+    if (rootPath === undefined) { return; }
+  });
+
   context.subscriptions.push(viewDisposable);
   context.subscriptions.push(initializeDisposable);
   context.subscriptions.push(widgetDisposable);
+  context.subscriptions.push(smartWidgetDisposable);
 }
 
 export function deactivate() { }
