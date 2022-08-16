@@ -84,7 +84,7 @@
 	"dependencies": {
 		"js-yaml": "^3.14.0",
 		"lodash": "^4.17.19",
-		"shelljs": "^0.8.4",
+		"shelljs": "^0.8.5",
 		"spawn-command": "0.0.2-1"
 	},
 	"icon": "logo.png"
