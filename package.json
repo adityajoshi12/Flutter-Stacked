@@ -2,11 +2,11 @@
 	"name": "stacked-mvvm",
 	"displayName": "Flutter Stacked MVVM",
 	"description": "This plugin is based on filledstacked Stacked architecture. MVVM code generators used in conjunction with the Stacked plugin. ",
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"engines": {
 		"vscode": "^1.47.0"
 	},
-	"publisher": "aditya-joshi",
+	"publisher": "AdityaJoshi",
 	"categories": [
 		"Other"
 	],
@@ -17,7 +17,7 @@
 		"Code generator",
 		"Snippet"
 	],
-	"license": "GPLv3",
+	"license": "MIT",
 	"homepage": "https://github.com/adityajoshi12/Flutter-Stacked",
 	"repository": {
 		"type": "git",
@@ -87,5 +87,5 @@
 		"shelljs": "^0.8.5",
 		"spawn-command": "0.0.2-1"
 	},
-	"icon": "logo.png"
+	"icon": "assets/logo.png"
 }
