@@ -1,8 +1,10 @@
 # Flutter MVVM Stacked Architecture 
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-[![Flutter Extensions](https://img.shields.io/badge/Flutter-grey?style=flat-square&logo=flutter&logoColor=blue)](https://flutter.dev)
+![Visual Studio Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/adityajoshi.stacked-mvvm?style=for-the-badge)
+![GitHub stars](https://img.shields.io/github/stars/adityajoshi12/Flutter-Stacked?style=for-the-badge)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)
+![Flutter Extensions](https://img.shields.io/badge/Flutter-grey?style=for-the-badge&logo=appveyor&logo=flutter&logoColor=blue)
 
 ### Initialize Architecture
 Initialize the project with the MVVM architecture:
