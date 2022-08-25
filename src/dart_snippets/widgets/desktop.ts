@@ -13,7 +13,7 @@ export class Desktop extends Base {
 class _${this.className} extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text('${fileName}_desktop'),
     );
   }

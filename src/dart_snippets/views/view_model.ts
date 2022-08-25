@@ -9,7 +9,6 @@ export class ViewModel extends Base {
     super(fileName, suffix);
     let initialPath = this.projectName === undefined ? '../../' : `package:${this.projectName}/`;
     this._dartString = `import 'package:stacked/stacked.dart';
-
 class ${this.className} extends BaseViewModel {
   ${this.className}();
   
@@ -25,8 +24,8 @@ class ${this.className} extends BaseViewModel {
     let initialPath = this.projectName === undefined ? '../../' : `package:${this.projectName}/`;
     return `import 'package:stacked/stacked.dart';
 
-    class HomeViewModel extends BaseViewModel {
-      HomeViewModel();
-    }`;
+class HomeViewModel extends BaseViewModel {
+  HomeViewModel();
+}`;
   }
 }

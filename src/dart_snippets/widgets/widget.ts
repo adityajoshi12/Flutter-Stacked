@@ -20,6 +20,7 @@ part '${fileName}_mobile.dart';
 part '${fileName}_tablet.dart';
 part '${fileName}_desktop.dart';
 class ${this.className} extends StatelessWidget {
+  const ${this.className}({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return ScreenTypeLayout(

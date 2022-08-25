@@ -8,23 +8,21 @@ export class Main extends Base {
     super(fileName, suffix);
 
     this._dartString = `
-import 'package:stacked_services/stacked_services.dart';
 import 'core/locator.dart';
 import 'package:flutter/material.dart';
-import 'ui/views/home/home_view.dart';
 import 'core/route/router.gr.dart';
-    void main() {
+void main() {
       setupLocator();
-      runApp(MyApp());
-    }
-    class MyApp extends StatelessWidget {
+      runApp(const MyApp());
+}
+class MyApp extends StatelessWidget {
+      const MyApp({Key? key}) : super(key: key);
       @override
       Widget build(BuildContext context) {
-        return  MaterialApp(
-            navigatorKey: locator<NavigationService>().navigatorKey,
-            home: HomeView(),
-            initialRoute: Routes.homeView,
-            onGenerateRoute: Router().onGenerateRoute,
+        return MaterialApp.router(
+          routeInformationParser: AppRouter().defaultRouteParser(),
+          routerDelegate: AppRouter().delegate(),
+          routeInformationProvider: AppRouter().routeInfoProvider(),
         );
       }
     }`;

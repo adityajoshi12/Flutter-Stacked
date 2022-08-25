@@ -15,7 +15,7 @@ class SimpleLogPrinter extends LogPrinter {
   final String className;
   SimpleLogPrinter(this.className);
   @override
-  void log(LogEvent event) {
+  List<String> log(LogEvent event) {
     prefix0.log(
       event.message,
       time: DateTime.now(),
@@ -41,6 +41,7 @@ class SimpleLogPrinter extends LogPrinter {
       error: event.error,
       sequenceNumber: counter += 1,
     );
+    return [event.message];
   }
 }
 Logger getLogger(String className) {

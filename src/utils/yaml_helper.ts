@@ -6,13 +6,13 @@ import * as _ from "lodash";
 export class YamlHelper {
   public static initializeWithDependencies() {
     this.upgradeDartVersion();
-    this.addDependencyToPubspec("stacked", "1.7.1+1");
-    this.addDependencyToPubspec("stacked_services", "0.4.4+3");
-    this.addDependencyToPubspec("responsive_builder", "0.1.4");
-    this.addDependencyToPubspec("logger", "0.7.0+2");
-    this.addDependencyToPubspec("get_it", "3.0.3");
-    this.addDependencyToPubspec("auto_route", "0.6.1");
-    this.addDependencyToPubspec("injectable", "0.4.0+1");
+    this.addDependencyToPubspec("stacked", "2.3.15");
+    this.addDependencyToPubspec("stacked_services", "0.9.5");
+    this.addDependencyToPubspec("responsive_builder", "0.4.2");
+    this.addDependencyToPubspec("logger", "1.1.0");
+    this.addDependencyToPubspec("get_it", "7.2.0");
+    this.addDependencyToPubspec("auto_route", "5.0.1");
+    this.addDependencyToPubspec("injectable", "1.5.3");
     this.addDevDependencyToPubspec("injectable_generator");
     this.addDevDependencyToPubspec("auto_route_generator","0.6.1");
     this.addDevDependencyToPubspec("build_runner");
@@ -89,7 +89,7 @@ export class YamlHelper {
       return;
     }
     let object = JSON.parse(json);
-    object["environment"]["sdk"] = ">=2.7.0 <3.0.0";
+    object["environment"]["sdk"] = ">=2.12.0 <3.0.0";
     let modifiedString = JSON.stringify(object);
     console.debug(`upgradeDartVersion: modifiledString: ${modifiedString}`);
     let updatedYaml = this.toYAML(modifiedString);
@@ -169,14 +169,14 @@ export class YamlHelper {
       console.error(e);
       return undefined;
     }
-    return yaml.safeDump(json, { indent: this.getIndent() });
+    return yaml.dump(json, { indent: this.getIndent() });
   }
 
   private static toJSON(text: string) {
     let json;
     try {
       console.debug(`toJSON: ${text}`);
-      json = yaml.safeLoad(text, { schema: yaml.JSON_SCHEMA });
+      json = yaml.load(text, { schema: yaml.JSON_SCHEMA });
     } catch (e) {
       VsCodeActions.showErrorMessage("Could not parse the selection as YAML.");
       console.error(e);

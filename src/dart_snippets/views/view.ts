@@ -22,6 +22,7 @@ part '${fileName}_mobile.dart';
 part '${fileName}_tablet.dart';
 part '${fileName}_desktop.dart';
 class ${this.className} extends StatelessWidget {
+  const ${this.className}({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<${classPrefix}ViewModel>.reactive(
@@ -40,7 +41,7 @@ class ${this.className} extends StatelessWidget {
   }
 }`;
 
-    Router.addRoute(`MaterialRoute(page: ${this.className},)`,`import '../../ui/views/${fileName}/${fileName}_view.dart';`);
+    Router.addRoute(`AutoRoute(page: ${this.className},)`,`import '../../ui/views/${fileName}/${fileName}_view.dart';`,this.className);
   }
 
   get dartString(): string {
